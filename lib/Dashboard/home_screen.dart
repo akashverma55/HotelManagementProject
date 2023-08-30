@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 // import 'package:lecle_flutter_carousel_pro/lecle_flutter_carousel_pro.dart';
-import 'package:carousel_slider/carousel_slider.dart';
+// import 'package:carousel_slider/carousel_slider.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class home_screen extends StatelessWidget {

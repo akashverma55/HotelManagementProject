@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hotel_management_app/screens/Dashboard/home_screen.dart';
-import 'package:hotel_management_app/screens/Dashboard/explore_screen.dart';
-import 'package:hotel_management_app/screens/Dashboard/saved_screen.dart';
-import 'package:hotel_management_app/screens/Dashboard/profile_screen.dart';
+import 'package:hotel_management_app/Dashboard/explore_screen.dart';
+import 'package:hotel_management_app/Dashboard/profile_screen.dart';
+import 'package:hotel_management_app/Dashboard/home_screen.dart';
+import 'package:hotel_management_app/Dashboard/saved_screen.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
