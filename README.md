@@ -1,3 +1,5 @@
 # hotel_management_app
 
-A new Flutter project.
+This is a flutter project designed to make hotel management easier
+
+![Flutter](flutter.png)
