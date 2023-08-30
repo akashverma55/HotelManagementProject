@@ -1,0 +1,29 @@
+name: hotel_management_app
+description: A new Flutter project.
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=3.0.6 <4.0.0'
+
+dependencies:
+  animated_text_kit: ^4.2.2
+  cloud_firestore: ^4.9.0
+  firebase_auth: ^4.8.0
+  firebase_core: ^2.15.1
+  firebase_database: ^10.2.5
+  firebase_messaging: ^14.6.7
+  flutter:
+    sdk: flutter
+  font_awesome_flutter: ^10.5.0
+  google_fonts: ^5.1.0
+  
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - images/
