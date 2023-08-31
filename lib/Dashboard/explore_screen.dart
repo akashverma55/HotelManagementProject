@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'circle.dart';
 
 class explore_screen extends StatefulWidget {
   const explore_screen({super.key});
@@ -8,12 +9,31 @@ class explore_screen extends StatefulWidget {
   State<explore_screen> createState() => _explore_screenState();
 }
 
-class _explore_screenState extends State<explore_screen> {
+class _explore_screenState extends State<explore_screen>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _animationController;
+  late Animation<double> _animation;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _animationController = AnimationController(
+        vsync: this, duration: Duration(milliseconds: 3000));
+    _animation = Tween<double>(begin: 0, end: 100).animate(_animationController)
+      // _animation = 5
+      ..addListener(() {
+        setState(() {});
+      });
+  }
+
   @override
   Widget build(BuildContext context) {
     final Height = MediaQuery.of(context).size.height;
     final Width = MediaQuery.of(context).size.width;
+    double _Progress = 70;
     return Scaffold(
+        resizeToAvoidBottomInset: false,
+
         backgroundColor: Colors.blue[800],
         body: SafeArea(
           child: Column(
@@ -84,7 +104,7 @@ class _explore_screenState extends State<explore_screen> {
                       Container(
                         decoration: BoxDecoration(
                             color: Colors.blue[900],
-                            border: Border.all(color: Colors.white,width: 2),
+                            border: Border.all(color: Colors.white, width: 2),
                             borderRadius: BorderRadius.circular(20)),
                         child: Padding(
                           padding: const EdgeInsets.all(16.0),
@@ -129,15 +149,54 @@ class _explore_screenState extends State<explore_screen> {
                       child: Column(
                         children: [
                           Container(
-                            height: Height * 0.1,
+                            height: Height * 0.15,
                             decoration: BoxDecoration(
-                              color: Colors.blue[200],
-                              borderRadius: BorderRadius.circular(12)
-                            ),
+                                // color: Colors.blueGrey[200],
+                                borderRadius: BorderRadius.circular(12)),
                             child: Row(children: [
                               Container(
-                                 
-                              )
+                                // height: Height * 0.1,
+                                width: Width * 0.1,
+                                decoration: BoxDecoration(
+                                    color: Colors.blue,
+                                    borderRadius: BorderRadius.circular(12)),
+                              ),
+                              SizedBox(
+                                width: Width * 0.015,
+                              ),
+                              Expanded(
+                                child: Container(
+                                  // width: Width*0.5,
+                                  decoration: BoxDecoration(
+                                      color: Colors.blue,
+                                      borderRadius: BorderRadius.circular(12),
+                                      image: DecorationImage(image: AssetImage("images/suitcase.jpg"),fit: BoxFit.cover)),
+                                      
+                                ),
+                              ),
+                              SizedBox(
+                                width: Width * 0.015,
+                              ),
+                              CustomPaint(
+                                
+                                foregroundPainter: CircleProgress(_Progress),
+                                child: Container(
+                                    width: Width * 0.35,
+                                    decoration: BoxDecoration(
+                                        // color: Colors.blue,
+                                        borderRadius:
+                                            BorderRadius.circular(12),
+                                            ),
+                                    child: GestureDetector(
+                                      onTap: () {
+                                        _animationController.forward();
+                                      },
+                                      child: Center(
+                                          child: Text(
+                                              '${_Progress.toInt()}',
+                                              style: TextStyle(fontSize: 20))),
+                                    )),
+                              ),
                             ]),
                           ),
                         ],
