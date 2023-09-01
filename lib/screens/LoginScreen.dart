@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:hotel_management_app/screens/Guests/LoginPage.dart';
-import 'package:hotel_management_app/screens/Manager/LoginScreenManager.dart';
+
+import "Manager/LoginPage.dart";
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -74,30 +74,11 @@ class _LoginScreenState extends State<LoginScreen> {
                           )
                         ),
                         SizedBox(height: MediaQuery.of(context).size.height*0.1),
-                        ElevatedButton(
-                          onPressed: () {
-                            // Handle login logic here
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=>const LoginPage()));
-                          },
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.blueAccent,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(24.0),
-                            ),
-                            padding: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.height*0.012),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(1.0),
-                            child: Center(
-                              child: Text('Continue as Guest', style: GoogleFonts.getFont('Work Sans',fontSize: 24)),
-                            ),
-                          ),
-                        ),
                         SizedBox(height: MediaQuery.of(context).size.height*0.03),
                         ElevatedButton(
                           onPressed: () {
                             // Handle login logic here
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=> const LoginScreenManager()));
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=> const LoginPage()));
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.white,

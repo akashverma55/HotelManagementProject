@@ -1,17 +1,18 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:hotel_management_app/screens/Manager/HomeScreen.dart';
 
+import 'HomeScreen.dart';
+import 'SignUpPage.dart';
 
-class LoginScreenManager extends StatefulWidget {
-  const LoginScreenManager({super.key});
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
 
   @override
-  State<LoginScreenManager> createState() => _LoginScreenManagerState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _LoginScreenManagerState extends State<LoginScreenManager> {
+class _LoginPageState extends State<LoginPage> {
   bool isObscured = true;
   bool _isLoggingIn = false;
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -24,6 +25,7 @@ class _LoginScreenManagerState extends State<LoginScreenManager> {
         backgroundColor: Colors.white,
         body: Stack(
           children: [
+            
             Positioned.fill(
               child: Align(
                 alignment: Alignment.topCenter,
@@ -84,18 +86,10 @@ class _LoginScreenManagerState extends State<LoginScreenManager> {
                           'Login Now',
                           style: GoogleFonts.getFont('Quicksand',
                           fontSize: 25,
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.bold
                           )
                         ),
-                        Text(
-                          'as Manager',
-                          style: GoogleFonts.getFont('Quicksand',
-                          fontSize: 18,
-                          color: Colors.blueGrey,
-                          fontWeight: FontWeight.bold,
-                          )
-                        ),
-                        SizedBox(height: MediaQuery.of(context).size.height*0.04),
+                        SizedBox(height: MediaQuery.of(context).size.height*0.025),
                         TextFormField(
                           controller: emailcontroller,
                           decoration: InputDecoration(
@@ -134,7 +128,7 @@ class _LoginScreenManagerState extends State<LoginScreenManager> {
                             )
                           ),
                         ),
-                        SizedBox(height: MediaQuery.of(context).size.height*0.04),
+                        SizedBox(height: MediaQuery.of(context).size.height*0.03),
                         _isLoggingIn? const CircularProgressIndicator():ElevatedButton(
                           onPressed: () {
                             _signIn();
@@ -153,7 +147,56 @@ class _LoginScreenManagerState extends State<LoginScreenManager> {
                             ),
                           ),
                         ),
-                        SizedBox(height: MediaQuery.of(context).size.height*0.05),
+                        SizedBox(height: MediaQuery.of(context).size.height*0.02,),
+                        /*Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            ElevatedButton(onPressed: (){},
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                  side: const BorderSide(color: Colors.blueGrey)
+                                )
+                              ),
+                              child: SizedBox(
+                                width:MediaQuery.of(context).size.width*0.25,
+                                height: MediaQuery.of(context).size.height*0.05,
+                                child: const Image(image: AssetImage('images/google_logo.png')),
+                              ),
+                            ),
+                            SizedBox(width: MediaQuery.of(context).size.width*0.1,),
+                            ElevatedButton(onPressed: (){},
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                  side: const BorderSide(color: Colors.blueGrey)
+                                )
+                              ),
+                              child: SizedBox(
+                                width:MediaQuery.of(context).size.width*0.25,
+                                height: MediaQuery.of(context).size.height*0.05,
+                                child: const Image(image: AssetImage('images/facebooklogo.png')),
+                              ),
+                            ),
+                          ],
+                        ),*/
+                        SizedBox(height: MediaQuery.of(context).size.height*0.04),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text("For new account?",
+                              style: GoogleFonts.getFont('Josefin Sans',color: Colors.blueGrey,fontSize: 18)),
+                            TextButton(onPressed: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=>const SignUpPage()));
+                            },
+                            child: Text(
+                              "Register Here",
+                              style: GoogleFonts.getFont('Josefin Sans',color: Colors.blueAccent,fontSize: 20),
+                            ))
+                          ],
+                        ),
                       ],
                     ),
                   ),
