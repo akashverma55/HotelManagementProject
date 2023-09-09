@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:hotel_management_app/Dashboard/explore_screen.dart';
 import 'package:hotel_management_app/Dashboard/profile_screen.dart';
 import 'package:hotel_management_app/Dashboard/home_screen.dart';
-import 'package:hotel_management_app/Dashboard/saved_screen.dart';
+// import 'package:hotel_management_app/Dashboard/saved_screen.dart';
+import 'package:hotel_management_app/Dashboard/detail.dart';
+
 
 class Dashboard extends StatefulWidget {
-  const Dashboard({super.key});
+  const Dashboard({super.key, required int indexValue});
 
   @override
   State<Dashboard> createState() => _miniState();
@@ -14,19 +16,20 @@ class Dashboard extends StatefulWidget {
 int indexValue = 0;
 
 class _miniState extends State<Dashboard> {
+  int indexValue = 0; // Initialize indexValue to 0
+
   List screen = [
     home_screen(),
     explore_screen(),
-    saved_screen(),
+    detail(),
     profile_screen()
   ];
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
-        // backgroundColor: Colors.black,
         unselectedItemColor: Colors.blueGrey,
-        // unselectedLabelStyle: TextStyle(color: Colors.blue),
         selectedItemColor: Colors.blue,
         currentIndex: indexValue,
         onTap: (value) {
@@ -45,4 +48,5 @@ class _miniState extends State<Dashboard> {
       body: screen[indexValue],
     );
   }
+  
 }

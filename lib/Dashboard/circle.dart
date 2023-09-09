@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 
 class CircleProgress extends CustomPainter {
-  final StrokeCircle = 13.0;
+  final StrokeCircle = 20.0;
   double currentProgress;
 
   CircleProgress(this.currentProgress);
@@ -15,7 +15,8 @@ class CircleProgress extends CustomPainter {
       ..style = PaintingStyle.stroke;
 
     Offset center = Offset(size.width / 2, size.height / 2);
-    double radius = 60;
+    double radius = 75;
+    double Radius = 30;
     canvas.drawCircle(center, radius, circle);
 
     Paint animationArc = Paint()
